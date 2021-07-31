@@ -21,9 +21,6 @@
 
 .background {
 	background-image: url('../images/countdown-background.png');
-	background-color: black;
-	width: 900px;
-	height: 750px;
 	background-position: bottom left;
 	margin: 0 auto;
 }
