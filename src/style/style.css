@@ -1,0 +1,38 @@
+.countdown-number {
+	font-size: 100px;
+	font-weight: bold;
+	width: 150px;
+	color: white;
+	text-align: center;
+
+}
+
+.countdown-label {
+	font-size: 25px;
+	color: white;
+	text-align: center;
+
+}
+
+.countdown-container {
+	margin: 0 auto;
+	font-family: 'Acme';
+}
+
+.background {
+	background-image: url('../images/countdown-background.png');
+	background-color: black;
+	width: 900px;
+	height: 750px;
+	background-position: bottom left;
+	margin: 0 auto;
+}
+
+.message {
+	width: 100%;
+	font-size: 50px;
+	color: white;
+	text-align: center;
+	font-family: 'Acme';
+	padding-top: 100px;
+}
