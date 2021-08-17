@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import Countdown from 'react-countdown';
 import './style/style.css'
+import Confetti from 'react-confetti'
+import Chihuahua from './images/chihuahua.gif'
 
 function App() {
 
@@ -20,7 +22,14 @@ function App() {
     const [windowHeight, setWindowHeight] = React.useState(window.innerHeight);
 
     // Random component
-    const Completionist = () => <div class="message" style={getMessageStyle()}>Yuxiao's flight has departed'!</div>;
+    const Completionist = () => (
+        <div class="container">
+            <Confetti width={windowWidth} height={windowHeight} />
+            <div class="message" style={getMessageStyle()}>Yuxiao's flight has departed!</div>
+            <div class="image"><img src={Chihuahua} width="300" height="175"/></div>
+            <div class="message" style={getMessageStyle()}>See you in Seattle!</div>
+        </div>
+    );
 
     // Renderer callback with condition
     const renderer = ({ days, hours, minutes, seconds, completed }) => {
@@ -30,34 +39,36 @@ function App() {
         } else {
             // Render a countdown
         return(
-            <table class="countdown-container">
-                <tr>
-                    <td class="countdown-number" style={getCountdownBoxStyle()}>{days}</td>
-                    <td class="countdown-number" style={getCountdownBoxStyle()}>{hours}</td>
-                    <td class="countdown-number" style={getCountdownBoxStyle()}>{minutes}</td>
-                    <td class="countdown-number" style={getCountdownBoxStyle()}>{seconds}</td>
-                </tr>
-                <tr>
-                    <td class="countdown-label">days</td>
-                    <td class="countdown-label">hours</td>
-                    <td class="countdown-label">minutes</td>
-                    <td class="countdown-label">seconds</td>
-                </tr>
-            </table>
+            <div class="container">
+                <div class="message" style={getMessageStyle()}>Yuxiao's flight to Seattle is departing in</div>
+                <table class="countdown-container">
+                    <tr>
+                        <td class="countdown-number" style={getCountdownBoxStyle()}>{days}</td>
+                        <td class="countdown-number" style={getCountdownBoxStyle()}>{hours}</td>
+                        <td class="countdown-number" style={getCountdownBoxStyle()}>{minutes}</td>
+                        <td class="countdown-number" style={getCountdownBoxStyle()}>{seconds}</td>
+                    </tr>
+                    <tr>
+                        <td class="countdown-label">days</td>
+                        <td class="countdown-label">hours</td>
+                        <td class="countdown-label">minutes</td>
+                        <td class="countdown-label">seconds</td>
+                    </tr>
+                </table>
+            </div>
         );
         }
     };
-    getBgStyle();
 
     return (
         <div className="background" style={getBgStyle()}>
-            <div class="message" style={getMessageStyle()}>Yuxiao's flight to Seattle is departing in</div>
             <Countdown
                 date={1629240900000}
                 renderer={renderer}
             />
         </div>
     );
+
 
     function getCountdownBoxStyle() {
         let width = Math.min(150, getBgWidth() / 4);
